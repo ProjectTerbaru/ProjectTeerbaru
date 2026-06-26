@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! ✨</title>
+    <link rel="stylesheet" href="style.css/style.css">
+</head>
+<body>
+
+    <div id="welcome-overlay">
+        <h1>Ada pesan spesial untukmu... 🎁</h1>
+        <button id="open-btn" onclick="bukaUndangan()">Buka Sekarang</button>
+    </div>
+
+    <audio id="myAudio" loop>
+            <source src="ssstik.io_1782318237127.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung audio.
+    </audio>
+
+    <div class="video-bg-container">
+        <video id="myVideo" loop muted playsinline>
+            <source src="lv_0_20260409225055.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <div class="main-content"> 
+        <h2>Happy Birthday My Person! ✨</h2> 
+             <p class="ucapan">"Selamat ulang tahun sayangku! Semoga di usia yang baru ini, harimu selalu dipenuhi kebahagiaan, keberkahan, dan semua impianmu bisa terwujud. Terima kasih sudah menjadi orang yang luar biasa!"</p> 
+ 
+    <button class="love-btn" onclick="window.location.href='klik.html'">
+    ❤️ Klik Aku ❤️
+</button>
+      
+    <script>
+        function bukaUndangan() {
+            const overlay = document.getElementById('welcome-overlay');
+            const video = document.getElementById('myVideo');
+            const audio = document.getElementById('myAudio');
+            
+            overlay.style.transform = 'translateY(-100%)';
+            
+            // Putar video dan audio bersamaan setelah klik tombol
+            video.play();
+            audio.play();
+
+            setInterval(createHeart, 300);
+        }
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            
+            const size = Math.random() * 20 + 10 + 'px';
+            heart.style.fontSize = size;
+            
+            const duration = Math.random() * 3 + 3 + 's';
+            heart.style.animation = `flyUp ${duration} linear forwards`;
+            
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+
+        }
+
+    </script>
+</body>
+</html>
