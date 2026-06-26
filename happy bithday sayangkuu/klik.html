@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lihat Kenangan ❤️</title>
+    <link rel="stylesheet" href="style.css/style1.css">
+</head>
+<body>
+
+    <!-- Musik -->
+    <audio autoplay loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Background Foto -->
+    <img src="lv_0_20260407205821 (1).jpg" class="bg-photo">
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="heart-loader">❤️</div>
+        <h2>Memuat Kenangan...</h2>
+    </div>
+
+    <!-- Konten -->
+    <div id="content">
+
+        <h2>📸 Kenangan Indah Kita 📸</h2>
+
+        <div class="gallery">
+            <img src="My Favorit/foto1.jpg" alt="Foto1">
+            <img src="My Favorit/IMG_0003.JPG">
+            <img src="My Favorit/IMG_0001.JPG">
+            <img src="My Favorit/IMG_0002.JPG">
+            <img src="My Favorit/IMG_0008.JPG">
+            <img src="My Favorit/IMG_0004.JPG">
+            <img src="My Favorit/IMG_0005.JPG">
+            <img src="My Favorit/IMG_0006.JPG">
+            <img src="My Favorit/IMG_0007.JPG">
+            <img src="My Favorit/foto2.jpg">
+        </div>
+
+    </div>
+
+    <!-- Bunga -->
+    <div class="flowers"></div>
+
+    <script>
+        window.addEventListener("load", function () {
+
+            setTimeout(() => {
+                document.getElementById("loader")
+                    .classList.add("loader-hide");
+            }, 2500);
+
+        });
+    </script>
+
+    <script>
+        const flowersContainer = document.querySelector(".flowers");
+
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+
+            const flowers = ["🌸","🌹","🌺","🌷"];
+
+            flower.innerHTML =
+                flowers[Math.floor(Math.random() * flowers.length)];
+
+            flower.style.left =
+                Math.random() * window.innerWidth + "px";
+
+            flower.style.animationDuration =
+                (5 + Math.random() * 5) + "s";
+
+            flower.style.fontSize =
+                (20 + Math.random() * 20) + "px";
+
+            flowersContainer.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 10000);
+        }
+
+        setInterval(createFlower, 500);
+    </script>
+
+</body>
+</html>
